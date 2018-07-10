@@ -9,3 +9,5 @@ function withLoader(Component) {
 }
 
 export default withLoader;
+
+

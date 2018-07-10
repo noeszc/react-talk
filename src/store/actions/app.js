@@ -19,7 +19,7 @@ export const apiConfigLoadingError = createAction(LOAD_APP_CONFIG_ERROR);
 
 export const setAppConfig = createAction(SET_APP_CONFIG);
 
-export const bootstrapApp = () => async dispatch => {
+export const bootstrapApp = () => dispatch => {
   dispatch(appStart());
   dispatch(loadAsyncAppConfig());
 };
@@ -35,3 +35,5 @@ export const loadAsyncAppConfig = () => async dispatch => {
     dispatch(apiConfigLoadingError(error));
   }
 };
+
+

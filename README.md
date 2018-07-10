@@ -1,3 +1,7 @@
+## Talk
+
+[Slides](https://goo.gl/ugtGKM)
+
 ## Available Scripts
 
 In the project directory, you can run:
