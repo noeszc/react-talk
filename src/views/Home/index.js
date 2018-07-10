@@ -4,14 +4,14 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { isEqualWith } from 'lodash';
 
-import SearchBar from 'components/SearchBar';
+import Searchbox from 'components/Searchbox';
 import MediaGrid from 'components/MediaGrid';
 
 import { getMovies } from 'store/selectors/movies';
 import filterCollection from 'utils/filterCollection';
 
+import { getLoading, getError } from 'store/selectors/movies';
 import Section from './Section';
-import { getLoading, getError } from '../../store/selectors/movies';
 
 class HomePage extends React.PureComponent {
   state = { items: null };
@@ -43,7 +43,7 @@ class HomePage extends React.PureComponent {
     const movieGridProps = { loading, error, items };
     return (
       <Section>
-        <SearchBar onChange={this.filterMovies} />
+        <Searchbox onChange={this.filterMovies} />
         <MediaGrid {...movieGridProps} />
       </Section>
     );

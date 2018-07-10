@@ -8,12 +8,12 @@ import { getMovie } from 'store/selectors/movies';
 import api from 'api';
 import LoadingIndicator from 'components/LoadingIndicator';
 import H1 from 'components/h1';
-import withLoading from 'hoc/withLoading';
+// import withLoading from 'hoc/withLoading';
 import Section from './Section';
 import Col from './Col';
 import Poster from './Poster';
 
-const Card = ({ detail }) => (
+/* const Card = ({ detail }) => (
   <Section>
     <Poster hero={detail.poster} />
     <Col size={2}>
@@ -23,7 +23,7 @@ const Card = ({ detail }) => (
   </Section>
 );
 
-const CardWithLoading = withLoading(Card);
+const CardWithLoading = withLoading(Card); */
 
 class DetailPage extends React.PureComponent {
   state = { detail: null, loading: true };
@@ -33,6 +33,9 @@ class DetailPage extends React.PureComponent {
     try {
       const trailers = await api.getMovieTrailers(movieId);
       const related = await api.getRelatedMovies(movieId);
+
+      console.log('LOADED_TRAILERS', trailers);
+      console.log('RELATED_MOVIES', related);
 
       this.setState({ loading: false });
     } catch (error) {}
