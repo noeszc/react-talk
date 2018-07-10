@@ -4,7 +4,7 @@ import { get, invoke } from 'lodash';
 import Wrapper from './Wrapper';
 import Input from './Input';
 
-class SearchBar extends Component {
+class Searchbox extends Component {
   state = { isEmpty: true, value: '' };
 
   handleChange = e => {
@@ -20,21 +20,21 @@ class SearchBar extends Component {
           ref={input => (this.input = input)}
           onChange={this.handleChange}
           value={this.state.value}
-          placeholder="Type something"
+          placeholder="Search something"
         />
       </Wrapper>
     );
   }
 }
 
-SearchBar.defaultProps = {
+Searchbox.defaultProps = {
   minCharacters: 1,
   onChange: () => {}
 };
 
-SearchBar.propTypes = {
+Searchbox.propTypes = {
   onChange: PropTypes.func.isRequired,
   minCharacters: PropTypes.number
 };
 
-export default SearchBar;
+export default Searchbox;

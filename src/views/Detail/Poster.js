@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Poster = styled.div`
-  flex: ${({ size }) => size || 1};
+  flex: 3;
   background-image: ${({ hero }) => `url(${hero})`};
   background-size: cover;
   background-repeat: no-repeat;

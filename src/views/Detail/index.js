@@ -4,15 +4,26 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { isEqualWith, isEmpty, get } from 'lodash';
 
-import Loader from 'react-loader';
 import { getMovie } from 'store/selectors/movies';
 import api from 'api';
 import LoadingIndicator from 'components/LoadingIndicator';
-import Img from 'components/Img';
+import H1 from 'components/h1';
+import withLoading from 'hoc/withLoading';
 import Section from './Section';
 import Col from './Col';
 import Poster from './Poster';
-import H1 from '../../components/h1';
+
+const Card = ({ detail }) => (
+  <Section>
+    <Poster hero={detail.poster} />
+    <Col size={2}>
+      <H1>{detail.title}</H1>
+      <p>{detail.overview}</p>
+    </Col>
+  </Section>
+);
+
+const CardWithLoading = withLoading(Card);
 
 class DetailPage extends React.PureComponent {
   state = { detail: null, loading: true };
@@ -47,7 +58,7 @@ class DetailPage extends React.PureComponent {
       <LoadingIndicator />
     ) : (
       <Section>
-        <Poster size={3} hero={detail.poster} />
+        <Poster hero={detail.poster} />
         <Col size={2}>
           <H1>{detail.title}</H1>
           <p>{detail.overview}</p>
@@ -55,6 +66,11 @@ class DetailPage extends React.PureComponent {
       </Section>
     );
   }
+
+  /* render() {
+    const { detail, loading } = this.state;
+    return <CardWithLoading isLoading={loading} detail={detail} />;
+  } */
 }
 
 DetailPage.propTypes = {

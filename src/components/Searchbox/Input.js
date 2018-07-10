@@ -8,7 +8,7 @@ const Input = styled.input`
   box-sizing: border-box;
   padding: 7px 14px 7px 7px;
   font-size: 14px;
-  width: 212px;
+  width: 300px;
   outline: 0;
 `;
 
